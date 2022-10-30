@@ -132,7 +132,7 @@ This is very cool!
 
 ## Keywords as file tags
   
-Note that *exciting* in the list above a tab-trigger for a yasnippet snippet that I stored in the bibtex-mode folder that I created in the snippets folder. 
+Note that *exciting* in the list above is a tab-trigger for a yasnippet snippet that I stored in the bibtex-mode folder that I created in the snippets folder. 
 It has the keywords for the *exciting* cluster of projects.
 These keywords ease retrieval of the bibtex entries in JabRef.
 
