@@ -1,4 +1,4 @@
-# Blaine's user.el configuration file for scimax
+User configuration file for scimax
 
 
 This repo has my user.el file for scimax.
