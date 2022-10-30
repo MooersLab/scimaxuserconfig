@@ -134,7 +134,7 @@ Note that *exciting* in the list above a tab-trigger for a yasnippet snippet tha
 It has the keywords for the *exciting* cluster of projects.
 These keywords ease retrieval of the bibtex entries in JabRef.
 
-I add the keywords as tags to the PDFs by using the terminal based[tags]() program.
+I add the keywords as tags to the PDFs by using J.D> Berry's terminal-based [tag](https://github.com/jdberry/tag) program.
 These tags aid in the selection of PDFs with the finder in the Mac.
 All PDFs revelant to a manuscript have the manuscript's project number as a tag.
 These tags negate the desire to store PDFs in individual folders.
