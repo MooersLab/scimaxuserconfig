@@ -1,7 +1,7 @@
 # User configuration file for scimax
 
 
-This repo has my **user.el** file for scimax.
+This repo has my **user.el** file for [scimax](https://github.com/jkitchin/scimax).
 SciMax is a highly customized Emacs profile for scientists.
 It is being developed by John Kitchin at the Carniege Mellon University. 
 
