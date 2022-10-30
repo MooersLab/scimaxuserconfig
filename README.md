@@ -16,7 +16,7 @@ The **user.el** file is the user's configuration file for scimax.
 It resides in the *user* subfolder of the *scimax* folder.
 The  **user.el** file contains the Emacs keybinding and packages that I cannot live without.
 For example, it contains the keybindings that map the Mac option key to the super key and the  right-option key on the hyper key.
-It also contains the keybinding of **s-<right>** to next buffer and **s-<left>** to the previous buffer.
+It also contains the keybinding of **s-rightarrow** to next buffer and **s-leftarrow** to the previous buffer.
 These are very convenient for moving from the org file  in the current buffer and to the bib file in the next buffer and back again without using the mouse.
 I have included my minibuffer history keybindings and the configuration for bibtex and org-ref.
 
