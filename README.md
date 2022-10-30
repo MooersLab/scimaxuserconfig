@@ -54,10 +54,46 @@ I mapped the alias *eis* to Emacs running the scimax configuration by adding the
 
 ```bash
 eis='/Applications/Emacs29.0.5.app/Contents/MacOS/Emacs --init-directory ~/scimax'
+```
+
+I check the alias by entering in the terminal:
+  
+```bash  
 alias eis
 ```
 Please note that I am using the *--init-directory* flag that is only available for Emacs version 29.
+  
+For older versions of Emacs, swamp `--init-directory ~/scimax` above with `-q -l ~/scimax/init.el`.
+The `-q` flag means skip the default configration `~/.emacs.d/init.el`.
+The `-l` flag means load new configration.
+  
+Alternatively, you can use the venerable [chemacs2](https://github.com/plexus/chemacs2) package. 
 
+Create an *.emacs-profiles.el* file containing the following.
+Delete the installations that you lack.
+  
+```elisp
+(("default" . ((user-emacs-directory . "~/.emacs.default")))
+ ("crafted" . ((user-emacs-directory . "~/crafted-emacs")))
+ ("latex" . ((user-emacs-directory . "~/latex-emacs")))
+ ("brave" . ((user-emacs-directory . "~/brave-emacs")))
+ ("scimax" . ((user-emacs-directory . "~/scimax")))
+ ("je" . ((user-emacs-directory . "~/jupyter-emacs")))
+ ("le" . ((user-emacs-directory . "~/latex-emacs")))
+ ("rmd" . ((user-emacs-directory . "~/rmd-emacs")))
+ ("ess" . ((user-emacs-directory . "~/ess-emacs")))
+ ("doom" . ((user-emacs-directory . "~/doom-emacs")))
+)
+```  
+  
+Create a *.emacs-profile* file, which contains the name of your default emacs profile.
+ 
+```elisp
+ default
+ ``` 
+  
+  
+  
 ## Fetching bibtex entries
 
 I started using scimax to enter BibTeX  entries into my global.bib file.
@@ -89,11 +125,19 @@ My protocol is as follows:
 
 A time stamp is included in the BibTeX entry.
 This time stamp can narrow the search for the most recently entered entries using Emacs or JabRef.
-JabRef can send a selected entry to a latex or org-mode buffer in Emacs as a citekey if JabRef has been configured to use Emacs as its default external editor under Option/Preferences.
+  
+JabRef can send a selected entry to a LaTeX or org-mode buffer in Emacs as a citekey if JabRef has been configured to use Emacs as its default external editor under Option/Preferences.
+Just enter *cmd-L*.
+This is very cool!
 
-Note that *exciting* in the list above a tab-trigger for a snippet that I stored in the bibtex-mode folder that I created in the snippets folder. 
+Note that *exciting* in the list above a tab-trigger for a yasnippet snippet that I stored in the bibtex-mode folder that I created in the snippets folder. 
 It has the keywords for the *exciting* cluster of projects.
 These keywords ease retrieval of the bibtex entries in JabRef.
 
-I have add the keywords as tags to the PDFs by using the tags program.
-These are meant to aid in the selection of PDFs with the finder in the Mac.
+I add the keywords as tags to the PDFs by using the terminal based[tags]() program.
+These tags aid in the selection of PDFs with the finder in the Mac.
+All PDFs revelant to a manuscript have the manuscript's project number as a tag.
+These tags negate the desire to store PDFs in individual folders.
+  
+Unfortunately, Emacs does not utilize these tags, yet.
+Emacs has its own system of tags that akind to bookmarks inside of documents.
