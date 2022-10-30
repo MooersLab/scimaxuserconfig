@@ -3,7 +3,7 @@
 
 This repo has my **user.el** file for [scimax](https://github.com/jkitchin/scimax).
 SciMax is a highly customized Emacs profile for scientists.
-It is being developed by John Kitchin at the Carniege Mellon University. 
+It is being developed by John Kitchin at the Carnegie Mellon University. 
 
 I am using scimax to learn about the features that are wanting in my own configurations.
 For example, I using it to learn about org-ref.
