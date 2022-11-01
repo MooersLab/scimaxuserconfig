@@ -172,6 +172,29 @@
 ;;; L
 ;;## L
 
+;;### LanguageTool
+
+(use-package languagetool
+  :ensure t
+  :defer t
+  :commands (languagetool-check
+             languagetool-clear-suggestions
+             languagetool-correct-at-point
+             languagetool-correct-buffer
+             languagetool-set-language
+             languagetool-server-mode
+             languagetool-server-start
+             languagetool-server-stop)
+  :config
+  (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8")
+        languagetool-console-command "~/.languagetool/languagetool-commandline.jar"
+        languagetool-server-command "~/.languagetool/languagetool-server.jar"))
+
+        (setq languagetool-java-arguments '("-Dfile.encoding=UTF-8"))
+
+        (setq languagetool-console-command "~/.languagetool/languagetool-commandline.jar"
+              languagetool-server-command "~/.languagetool/languagetool-server.jar")
+
 ;;### LaTeX helpher functions
 ;;#### M-x description
 ;; Converts a selected list into a description list.
@@ -529,6 +552,46 @@ Latest release note
   :NOTER_PAGE:
   :END:")))
 
+
+
+;; *** org-tree-to-indirect-buffer
+;; 
+;; This function address the shortcoming of org-tree-to-indirect-buffer which is that there can only be one such indirect buffer per Org mode file.
+;; [[https://www.reddit.com/r/orgmode/comments/dbsngi/comment/f26qpzr/][Source]].
+;; Its purpose is to provide more than one indirect buffer when using org-tree-to-indirect-buffer() (via C-c C-x b).
+;; This latter function is built-in.
+;; Repeating C-c C-x b will drill down to the lowest headline level.
+
+(defun my-org-tree-to-indirect-buffer (&optional arg)
+  "Create indirect buffer and narrow it to current subtree.
+The buffer is named after the subtree heading, with the filename
+appended.  If a buffer by that name already exists, it is
+selected instead of creating a new buffer."
+  (interactive "P")
+  (let* ((new-buffer-p)
+         (pos (point))
+         (buffer-name (let* ((heading (org-get-heading t t))
+                             (level (org-outline-level))
+                             (face (intern (concat "outline-" (number-to-string level))))
+                             (heading-string (propertize (org-link-display-format heading)
+                                                         'face face)))
+                        (concat heading-string "::" (buffer-name))))
+         (new-buffer (or (get-buffer buffer-name)
+                         (prog1 (condition-case nil
+                                    (make-indirect-buffer (current-buffer) buffer-name 'clone)
+                                  (error (make-indirect-buffer (current-buffer) buffer-name)))
+                           (setq new-buffer-p t)))))
+    (switch-to-buffer new-buffer)
+    (when new-buffer-p
+      ;; I don't understand why setting the point again is necessary, but it is.
+      (goto-char pos)
+      (rename-buffer buffer-name)
+      (org-narrow-to-subtree))))
+
+(advice-add 'org-tree-to-indirect-buffer :override 'my-org-tree-to-indirect-buffer)
+(global-set-key (kbd "C-c i b") 'my-org-tree-to-indirect-buffer)
+
+  Note: a similar effect is had using a tag via (e.g., C-c \ m and enter tag at the prompt in the minibuffer).
 ;;; P
 ;;; Q
 ;;; R
