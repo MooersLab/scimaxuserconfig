@@ -1,3 +1,5 @@
+;;; Copied from a template in examples folder: https://github.com/SystemCrafters/crafted-emacs/tree/master/examples
+;;; 
 
 (load "~/Documents/global.bib")
 
@@ -591,7 +593,8 @@ selected instead of creating a new buffer."
 (advice-add 'org-tree-to-indirect-buffer :override 'my-org-tree-to-indirect-buffer)
 (global-set-key (kbd "C-c i b") 'my-org-tree-to-indirect-buffer)
 
-  Note: a similar effect is had using a tag via (e.g., C-c \ m and enter tag at the prompt in the minibuffer).
+;; Note: a similar effect is had using a tag via (e.g., C-c \ m and enter tag at the prompt in the minibuffer).
+    
 ;;; P
 ;;; Q
 ;;; R
