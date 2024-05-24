@@ -1,14 +1,18 @@
-# User configuration file for scimax
+![Version](https://img.shields.io/static/v1?label=scimaxuserconfig/&message=0.2&color=brightcolor)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+
+
+# User configuration file for scimax
 
 This repo has my **user.el** file for [scimax](https://github.com/jkitchin/scimax).
 SciMax is a highly customized Emacs profile for scientists.
-It is being developed by John Kitchin at the Carnegie Mellon University. 
+It is being developed by John Kitchin at Carnegie Mellon University. 
 
-I am using scimax to learn about the features that are wanting in my own configurations.
-For example, I using it to learn about org-ref.
+I am using scimax to learn about the new features to add to my main configurations.
+For example, I used it to learn about org-ref.
 Yes, using someone else's configuration feels like sleeping in someone else's bed!
-I do not intend to migrate to scimax: I am just visting on a sabbattical from my vanilla GNU Emacs configuration.
+I do not intend to migrate to Scimax: I am just visiting on a sabbatical from my vanilla GNU Emacs configuration.
 However, these additions are making scimax more comfortable.
 I need to stay long enough to read the manual.
 
@@ -86,7 +90,7 @@ Delete the installations that you lack.
 )
 ```  
   
-Create a *.emacs-profile* file, which contains the name of your default emacs profile.
+Create a *.emacs-profile* file containing the name of your default emacs profile.
  
 ```elisp
  default
@@ -94,7 +98,7 @@ Create a *.emacs-profile* file, which contains the name of your default emacs pr
   
   
   
-## Fetching bibtex entries
+## Fetching BibTeX entries
 
 I started using scimax to enter BibTeX  entries into my global.bib file.
 I reasoned that scimax might have better support for org-ref than the configurations that I had built in my default configuration and my *latex-emacs* configuration.
@@ -123,23 +127,37 @@ My protocol is as follows:
 - Copy the citekey over the filename prefix of the PDF.
 - Add the keywords to the PDF with the tags program.
 
-A time stamp is included in the BibTeX entry.
-This time stamp can narrow the search for the most recently entered entries using Emacs or JabRef.
+A timestamp is included in the BibTeX entry.
+This timestamp can narrow the search for the most recently entered entries using Emacs or JabRef.
   
-JabRef can send a selected entry to a LaTeX or org-mode buffer in Emacs as a citekey if JabRef has been configured to use Emacs as its default external editor under Option/Preferences.
+JabRef can send a selected entry to a LaTeX or org-mode buffer in Emacs as a cite key if JabRef has been configured to use Emacs as its default external editor under Option/Preferences.
 Just enter *cmd-L*.
 This is very cool!
 
 ## Keywords as file tags
   
-Note that *exciting* in the list above is a tab-trigger for a yasnippet snippet that I stored in the bibtex-mode folder that I created in the snippets folder. 
+Note that *exciting* in the list above is a tab trigger for a yasnippet snippet that I stored in the BibTeX-mode folder I created in the snippets folder. 
 It has the keywords for the *exciting* cluster of projects.
-These keywords ease retrieval of the bibtex entries in JabRef.
+These keywords ease retrieval of the BibTeX entries in JabRef.
 
 I add the keywords as tags to the PDFs by using J.D> Berry's terminal-based [tag](https://github.com/jdberry/tag) program.
-These tags aid in the selection of PDFs with the finder in the Mac.
-All PDFs revelant to a manuscript have the manuscript's project number as a tag.
+These tags aid in selecting PDFs with the finder on the Mac.
+All PDFs relevant to a manuscript have the manuscript's project number as a tag.
 These tags negate the desire to store PDFs in individual folders.
   
 Unfortunately, Emacs does not utilize these tags, yet.
-Emacs has its own system of tags that akind to bookmarks inside of documents.
+Emacs has its own system of tags like bookmarks inside documents.
+
+## Update history
+
+|Version      | Changes                                                                                                                                    | Date                 |
+|:-----------:|:------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------:|
+| Version 0.2 |   Added badges, funding, and update table.                                                                                                 | 2024 May 24          |
+
+
+## Sources of funding
+
+- NIH: R01 CA242845
+- NIH: R01 AI088011
+- NIH: P30 CA225520 (PI: R. Mannel)
+- NIH: P20 GM103640 and P30 GM145423 (PI: A. West)v
